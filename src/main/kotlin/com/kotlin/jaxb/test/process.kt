@@ -1,7 +1,7 @@
 package com.kotlin.jaxb.test
 
 import co.test.kotlin.com.kotlin.jaxb.Customer
-import com.google.common.io.Resources
+import java.io.File
 import java.io.StringWriter
 import javax.xml.bind.JAXBContext
 import javax.xml.bind.Marshaller
@@ -9,7 +9,8 @@ import javax.xml.bind.Marshaller
 fun main(args: Array<String>) {
     val jaxbContext = JAXBContext.newInstance(Customer::class.java)
     val jaxbUnmarshaller = jaxbContext.createUnmarshaller()
-    val customer = jaxbUnmarshaller.unmarshal(Resources.getResource("customer.xml"))
+//    val customer = jaxbUnmarshaller.unmarshal(Resources.getResource("customer.xml"))
+    val customer = jaxbUnmarshaller.unmarshal(File("src/main/resources/customer.xml"))
     println(customer)
 
     val library = Library("My Library");
